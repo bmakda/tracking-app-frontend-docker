@@ -40,10 +40,11 @@ const CreateTrackingPlan: React.FC = () => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
+
             const response = await axios.post('/tracking-plans', {
                 display_name: displayName,
                 description,
-                events: events,
+                events: [events],
             });
             console.log('Tracking plan created:', response.data);
             // Reset the form after successful submission
